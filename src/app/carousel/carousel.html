@@ -1,0 +1,28 @@
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-indicators">
+    <button *ngFor="let item of products; let i = index" type="button" data-bs-target="#carouselExampleCaptions"
+      [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-current]="i === 0 ? 'true' : null"
+      [attr.aria-label]="'Slide ' + (i + 1)"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let item of products; let i = index" [class.active]="i === 0">
+      <div class="position-relative">
+        <img [src]="item.thumbnail" class="d-block w-100" [alt]="item.title" style="height: 400px; object-fit: cover;">
+        <div class="mask-gradient"></div>
+      </div>
+      <div class="carousel-caption d-none d-md-block text-start" style="top: 20%; left: 10%; right: 50%; bottom: auto;">
+        <h2 class="display-4 fw-bold text-dark drop-shadow-white">{{ item.title }}</h2>
+        <p class="lead text-dark drop-shadow-white">{{ item.description | slice:0:50 }}...</p>
+        <button class="btn btn-link text-dark fw-bold p-0">See more <i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
